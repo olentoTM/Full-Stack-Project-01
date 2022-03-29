@@ -54,7 +54,7 @@ app.post("/newmessage", (req, res) => {
     //kirjoitetaan muutettu data JSON-tiedostoon.
     fs.writeFile("./public/json/newmessage.json", JSONdata, function (err, data) {
         if (err) throw err;
-        console.log("The file has been saved!");
+        console.log("Message has been saved to file!");
     });
 
     //Lopuksi vielä viesti käyttäjälle onnistuneesta lähetyksestä.
@@ -66,12 +66,26 @@ app.get("/ajaxmessage", (req, res) => {
 });
 
 app.use(bodyParser.json());
-app.post("ajaxmessage", (req, res) => {
-    var username2 = req.body.username;
-    var country2 = req.body.country;
-    var message2 = req.body.message;
+app.post("/ajaxmessage", (req, res) => {
+    var data2 = require("./public/json/ajaxmessage.json");
+    var username = req.body.Username;
+    var country = req.body.Country;
+    var message = req.body.Message;
 
-    console.log("Received the following data: " + username2 + ", " + country2 + ", " + message2);
+    data2.push({
+        Username: username,
+        Country: country,
+        Message: message
+    });
+
+    var JSONdata2 = JSON.stringify(data2);
+
+    fs.writeFile("./public/json/ajaxmessage.json", JSONdata2, function (err, data) {
+        if (err) throw err;
+        console.log("AJAX message has been saved to file!");
+    });
+
+    res.send(data2);
 });
 
 app.listen(port, () => console.log("The server is listening to port number " + port));

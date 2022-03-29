@@ -44,6 +44,7 @@
             <tbody>
                 <!-- Tässä kohtaa käydään funktion avulla läpi guestbook.json tiedoston sisältö. Jokaiselle riville tulostetaan sen jälkeen joka kohdan tiedot eri soluihin. -->
                 <!-- Itse guestbook.json tiedosto on haettu ja lähetetty sivulle palvelimen (server.js) kautta. -->
+                <!-- Päätin käyttää EJS:ää, koska se helpotti datan tulostamista sivulle. -->
                 <% posts.forEach(function(post){ %>
                 <tr>
                     <td><%= post.id %></td>

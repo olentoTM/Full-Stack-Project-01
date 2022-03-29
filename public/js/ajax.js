@@ -14,16 +14,29 @@ function gatherData() {
 
     http.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200){
-            document.getElementById("result").innerHTML = this.responseText;
+            var returnData = JSON.parse(this.responseText);
+            parseData(returnData);
         }
     }
 
     http.open("POST", "/ajaxmessage", true);
     http.setRequestHeader("Content-type", "application/json");
+    //Muutetaan lomakkeesta haettu data JSON-muotoon
     var data = {
-        username: username,
-        country: country,
-        message: message
+        Username: username,
+        Country: country,
+        Message: message
     };
+    console.log(data);
+    //Lähetetään data palvelimelle. Ennen lähettämistä data muutetaan merkkijonoksi.
     http.send(JSON.stringify(data));
+}
+
+//Tässä funktiossa käydään läpi palvelimen palauttama data ja muutetaan se HTML table muotoon.
+function parseData(returnData){
+    var table;
+    for(var i = 0; i < returnData.length; i++){
+        table += "<tr><td>" + returnData[i].Username + "</td><td>" + returnData[i].Country + "</td><td>" + returnData[i].Message + "</td><tr>";
+    }
+    document.getElementById("result").innerHTML = table;
 }
