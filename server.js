@@ -67,7 +67,7 @@ app.get("/ajaxmessage", (req, res) => {
 
 app.use(bodyParser.json());
 app.post("/ajaxmessage", (req, res) => {
-    var data2 = require("./public/json/ajaxmessage.json");
+    var data2 = require("./public/json/newmessage.json");
     var username = req.body.Username;
     var country = req.body.Country;
     var message = req.body.Message;
@@ -80,11 +80,12 @@ app.post("/ajaxmessage", (req, res) => {
 
     var JSONdata2 = JSON.stringify(data2);
 
-    fs.writeFile("./public/json/ajaxmessage.json", JSONdata2, function (err, data) {
+    fs.writeFile("./public/json/newmessage.json", JSONdata2, function (err, data) {
         if (err) throw err;
         console.log("AJAX message has been saved to file!");
     });
 
+    //Lähetetään JSON tiedosto takaisin selaimelle.
     res.send(data2);
 });
 
