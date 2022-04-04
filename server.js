@@ -74,7 +74,7 @@ app.post("/ajaxmessage", (req, res) => {
     var data2 = require("./public/json/guestbook.json");
     var username = req.body.username;
     var country = req.body.country;
-    var date = req.body.date;
+    var date = new Date();
     var message = req.body.message;
     var id = data2.length + 1;
 

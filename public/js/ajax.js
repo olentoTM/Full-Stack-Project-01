@@ -7,8 +7,6 @@ function gatherData() {
     var username = document.getElementById("username").value;
     var country = document.getElementById("country").value;
     var message = document.getElementById("message").value;
-    var date = new Date();
-    console.log(date);
 
     console.log("The following data has been submitted: \n\nUsername: " + username + " \nCountry: " + country + " \nMessage: " + message);
 
@@ -26,7 +24,6 @@ function gatherData() {
     var data = {
         username: username,
         country: country,
-        date: date,
         message: message
     };
     console.log(data);
