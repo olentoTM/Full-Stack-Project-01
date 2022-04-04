@@ -7,6 +7,8 @@ function gatherData() {
     var username = document.getElementById("username").value;
     var country = document.getElementById("country").value;
     var message = document.getElementById("message").value;
+    var date = new Date();
+    console.log(date);
 
     console.log("The following data has been submitted: \n\nUsername: " + username + " \nCountry: " + country + " \nMessage: " + message);
 
@@ -14,8 +16,7 @@ function gatherData() {
 
     http.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200){
-            var returnData = JSON.parse(this.responseText);
-            parseData(returnData);
+            console.log("Data received!");
         }
     }
 
@@ -23,20 +24,13 @@ function gatherData() {
     http.setRequestHeader("Content-type", "application/json");
     //Muutetaan lomakkeesta haettu data JSON-muotoon
     var data = {
-        Username: username,
-        Country: country,
-        Message: message
+        username: username,
+        country: country,
+        date: date,
+        message: message
     };
     console.log(data);
     //Lähetetään data palvelimelle. Ennen lähettämistä data muutetaan merkkijonoksi.
     http.send(JSON.stringify(data));
-}
-
-//Tässä funktiossa käydään läpi palvelimen palauttama data ja muutetaan se HTML table muotoon.
-function parseData(returnData){
-    var table;
-    for(var i = 0; i < returnData.length; i++){
-        table += "<tr><td>" + returnData[i].Username + "</td><td>" + returnData[i].Country + "</td><td>" + returnData[i].Message + "</td><tr>";
-    }
-    document.getElementById("result").innerHTML = table;
+    alert("Message successfully sent! Check the guestbook page for your message.")
 }
