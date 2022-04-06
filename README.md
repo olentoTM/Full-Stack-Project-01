@@ -17,7 +17,7 @@ Tämä sovellus koostuu Node.js palvelimesta sekä neljästä eri sivusta:
 /ajaxmessage - Sama kuin edellinen, mutta tällä kertaa nappia painamalla sovellus ajaa JavaScript koodin, joka lähettää lomakkeen tiedot AJAX kutsuna palvelimelle.
 
 
-Tässä projektissa on hyödynnetty seuraavia Node.js paketteja: Express, EJS
+Tässä projektissa on hyödynnetty seuraavia Node.js paketteja: Express, EJS, body-parser
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -36,4 +36,4 @@ This application consists of a Node.js server and four different pages:
 /ajaxmessage - Same as the previous page, except click the button will instead run a JavaScript code, which will send the form data as AJAX call.
 
 
-This Project has utilized the following Node.js packages: Express, EJS
+This Project has utilized the following Node.js packages: Express, EJS, body-parser
