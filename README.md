@@ -10,7 +10,7 @@ Tämä sovellus koostuu Node.js palvelimesta sekä neljästä eri sivusta:
 
 Tässä projektissa on hyödynnetty seuraavia Node.js paketteja: Express, EJS
 
-
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 First project for Laurea's Full Stack development course.
 The idea of this project is a simple guestbook application, which allows the user to view messages posted by others, as well as post messages of their own via 2 different pages.
