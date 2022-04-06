@@ -33,7 +33,7 @@ This application consists of a Node.js server and four different pages:
 
 /newmessage - A form, which will submit all fields directly to the server and save them to a JSON file in the back-end.
 
-/ajaxmessage - Same as the previous page, except click the button will instead run a JavaScript code, which will send the form data as AJAX call.
+/ajaxmessage - Same as the previous page, except clicking the button will instead run a JavaScript code, which will send the form data as AJAX call to the server.
 
 
 This Project has utilized the following Node.js packages: Express, EJS, body-parser
